@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff MGT</title>
+    <link rel="stylesheet" th:href="@{css/styles.css}" />
+</head>
+<body>
+<div class="new">
+    <h2 class="title">Add Employee</h2>
+    <form th:action="@{/new}" th:object="${employee}" method="POST">
+        <div class="form-control">
+            <label for="firstname">First name</label>
+            <input type="text" name="firstname" id="firstname" th:field="*{firstName}" required />
+        </div>
+        <div class="form-control">
+            <label for="lastname">Last name</label>
+            <input type="text" name="lastname" id="lastname" th:field="*{lastName}" required />
+        </div>
+        <div class="form-control">
+            <label for="email">Staff email</label>
+            <input type="email" name="email" id="email" th:field="*{email}" required />
+        </div>
+        <div class="form-control">
+            <label for="department">Department</label>
+            <input type="text" name="department" id="department" th:field="*{department}" required />
+        </div>
+        <div class="form-control">
+            <label for="title">Job Title</label>
+            <input type="text" name="title" id="title" th:field="*{jobTitle}" required />
+        </div>
+        <div class="form-control">
+            <label for="type">Job Type</label>
+            <input type="text" name="type" id="type" th:field="*{jobType}" required />
+        </div>
+        <div class="form-control">
+            <label for="type">Gender</label>
+            <select th:field="*{gender}">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <input type="submit" value="Add Employee" />
+    </form>
+</div>
+</body>
+</html>

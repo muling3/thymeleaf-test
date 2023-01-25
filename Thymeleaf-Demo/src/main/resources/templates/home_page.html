@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="UTF-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Staff MGT</title>
+ <link rel="stylesheet" th:href="@{css/styles.css}" />
+</head>
+<body>
+<div class="main">
+ <h1>Employee Stats</h1>
+ <div class="header">
+  <div class="circle total">
+   <p>Total</p>
+   <h1 th:text="${total}"></h1>
+  </div>
+  <div class="circle male">
+   <p>Male</p>
+   <h1 th:text="${male}"></h1>
+  </div>
+  <div class="circle female">
+   <p>Female</p>
+   <h1 th:text="${female}"></h1>
+  </div>
+ </div>
+ <div class="table">
+  <div class="top">
+    <h3>Employees list</h3>
+    <div class="btn"><a th:href="@{/new}">Add Employee</a></div>
+  </div>
+  <table>
+   <thead>
+   <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>User email</th>
+    <th>Department</th>
+    <th>Staff no</th>
+    <th>Actions</th>
+   </tr>
+   </thead>
+   <tbody>
+   <tr th:each="emp: ${employees}">
+    <td th:text="${emp.firstName}"></td>
+    <td th:text="${emp.lastName}"></td>
+    <td th:text="${emp.email}"></td>
+    <td th:text="${emp.department}"></td>
+    <td th:text="${emp.staffNo}"></td>
+    <td>
+     <button class="view"><a th:href="@{/{id}(id=${emp.id})}">View</a></button>
+     <button class="delete"><a th:href="@{/remove/{id}(id=${emp.id})}">Delete</a></button>
+    </td>
+   </tr>
+   </tbody>
+  </table>
+ </div></div>
+</body>
+</html>
